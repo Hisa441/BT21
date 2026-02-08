@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài TK4 - Tab View</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .tab-bar { overflow: hidden; border: 1px solid #ccc; background-color: #f1f1f1; }
+        .tab-btn { background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; font-size: 17px; }
+        .tab-btn:hover { background-color: #ddd; }
+        .tab-btn.active { background-color: #ccc; }
+        .tab-content { display: none; padding: 6px 12px; border: 1px solid #ccc; border-top: none; animation: fadeEffect 1s; }
+        @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+    </style>
+</head>
+<body>
+    <a href="index.html">⬅ Quay về trang chủ</a>
+    <h2>Bài tập TK4: Tạo Tab View</h2>
+
+    <div class="tab-bar">
+        <button class="tab-btn" onclick="openTab('Home')">Trang Chủ</button>
+        <button class="tab-btn" onclick="openTab('News')">Tin Tức</button>
+        <button class="tab-btn" onclick="openTab('Contact')">Liên Hệ</button>
+    </div>
+
+    <div id="Home" class="tab-content" style="display:block">
+        <h3>Trang Chủ</h3>
+        <p>Đây là nội dung trang chủ.</p>
+    </div>
+
+    <div id="News" class="tab-content">
+        <h3>Tin Tức</h3>
+        <p>Cập nhật tin tức mới nhất hôm nay.</p>
+    </div>
+
+    <div id="Contact" class="tab-content">
+        <h3>Liên Hệ</h3>
+        <p>Thông tin liên hệ: email@example.com</p>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            // 1. Ẩn tất cả nội dung
+            var contents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].style.display = "none";
+            }
+            // 2. Hiển thị tab được chọn
+            document.getElementById(tabName).style.display = "block";
+        }
+    </script>
+</body>
+</html>

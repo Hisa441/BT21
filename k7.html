@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài K7 - Parallax Scrolling</title>
+    <style>
+        body { margin: 0; padding: 0; overflow-x: hidden; font-family: sans-serif; }
+        
+        /* Hình nền Parallax */
+        #parallax-bg {
+            position: fixed; /* Cố định để trôi theo JS */
+            top: 0; left: 0;
+            width: 100%; height: 120vh; /* Cao hơn màn hình để có chỗ trôi */
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4); /* Màu nền tạm thay cho ảnh */
+            z-index: -1; /* Nằm dưới nội dung */
+            /* Nếu bạn có ảnh nền, dùng dòng này:
+            background-image: url('link-anh-cua-ban.jpg'); background-size: cover; */
+        }
+
+        .content {
+            margin-top: 100px;
+            background: white;
+            padding: 50px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            min-height: 1500px; /* Dài để cuộn được */
+        }
+    </style>
+</head>
+<body>
+    <div id="parallax-bg"></div>
+
+    <div class="content">
+        <a href="index.html">⬅ Quay về trang chủ</a>
+        <h1>Bài tập K7: Hiệu ứng Parallax</h1>
+        <p>Hãy cuộn chuột xuống để thấy hình nền phía sau trôi chậm hơn khối nội dung màu trắng này.</p>
+        <p>Lorem ipsum dolor sit amet...</p>
+        <div style="height: 500px"></div>
+        <p>Tiếp tục cuộn...</p>
+    </div>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            const scrolled = window.scrollY;
+            const parallax = document.getElementById("parallax-bg");
+            // Tốc độ 0.5 lần cuộn
+            parallax.style.transform = "translateY(" + (scrolled * 0.5) + "px)";
+        });
+    </script>
+</body>
+</html>
